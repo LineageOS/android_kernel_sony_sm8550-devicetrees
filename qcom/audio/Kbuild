@@ -1,7 +1,9 @@
 DTC_INCLUDE += $(srctree)/../sm8550-modules/qcom/opensource/audio-kernel/include
 
 ifeq ($(CONFIG_ARCH_KALAMA), y)
-dtbo-y += kalama-audio.dtbo \
+dtbo-y += kalama-audio.dtbo
+ifneq ($(CONFIG_MACH_SONY_DEVICE), y)
+dtbo-y += \
                  kalama-audio-cdp.dtbo \
                  kalama-audio-cdp-nfc.dtbo \
                  kalama-audio-wsa883x-cdp.dtbo \
@@ -15,6 +17,9 @@ dtbo-y += kalama-audio.dtbo \
                  kalama-audio-rumi.dtbo \
                  kalama-audio-hdk.dtbo \
                  kalama-sg-audio-hhg.dtbo
+endif
+dtb-$(CONFIG_MACH_SONY_DEVICE) += kalama-audio.dtbo
+dtbo-$(CONFIG_MACH_SONY_PDX234) += sony/somc-yodo-audio-pdx234.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8155), y)

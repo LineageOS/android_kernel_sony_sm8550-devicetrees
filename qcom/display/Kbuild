@@ -1,5 +1,7 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
-dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde.dtbo \
+dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde.dtbo
+ifneq ($(CONFIG_MACH_SONY_DEVICE), y)
+dtbo-$(CONFIG_ARCH_KALAMA) += \
 		display/kalama-sde-display-rumi-overlay.dtbo \
 		display/kalama-sde-display-cdp-overlay.dtbo \
 		display/kalama-sde-display-cdp-wsa883x-overlay.dtbo \
@@ -11,6 +13,9 @@ dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde.dtbo \
 		display/kalama-sde-display-rcm-overlay.dtbo \
 		display/kalama-sde-display-cdp-nfc-overlay.dtbo \
 		display/kalama-sde-display-atp-overlay.dtbo
+endif
+dtb-$(CONFIG_MACH_SONY_DEVICE) += display/kalama-sde.dtbo
+dtbo-$(CONFIG_MACH_SONY_PDX234) += sony/kalama-sde-display-pdx234-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.dtbo \
                   display/trustedvm-kalama-sde-display-mtp-nfc-overlay.dtbo \

@@ -11,6 +11,8 @@ add-overlays = $(foreach o,$1,$(foreach b,$2,$(eval $(basename $b)-$(basename $o
 # kalama-overlays-dtb-y is list of DTBs and DTBOs to install when doing overlay-supported build
 # see DTB_TYPES from scripts/Makefile.dtbinst and install_dtbs from build.config.msm.common
 
+ifneq ($(CONFIG_MACH_SONY_DEVICE), y)
+
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 
 WAIPIO_BASE_DTB += waipio.dtb waipio-v2.dtb
@@ -523,6 +525,8 @@ sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
 	sdxbaagha-mtp.dtb \
 	sdxbaagha-cdp.dtb
 dtb-y += $(sdxbaagha-dtb-y)
+
+endif
 
 always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
