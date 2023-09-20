@@ -102,10 +102,10 @@
 // FM changes
 &qupv3_hub_i2c2 {
     status = "ok";
-	nq@64 {
-		compatible = "rtc6226";
+	rtc6226@64 {
+		compatible = "richwave,rtc6226";
 		reg = <0x64>;
-		fmint-gpio = <&tlmm 15 0>;
+		fmint-gpio = <&tlmm 75 0>;
 		vdd-supply = <&L16B>;
 		rtc6226,vdd-supply-voltage = <2800000 2800000>;
 		rtc6226,vdd-load = <15000>;

@@ -1,6 +1,20 @@
 DTC_INCLUDE += $(srctree)/../sm8550-modules/qcom/opensource/audio-kernel/include
 
+SOMC_TARGET_PRODUCT := pdx234
+SOMC_TARGET_OPERATOR := generic
+SOMC_PLATFORM := yodo
+
 ifeq ($(CONFIG_ARCH_KALAMA), y)
+
+ifeq ($(SOMC_PLATFORM), yodo)
+SOMC_PRODUCT_OPERATOR = $(SOMC_TARGET_PRODUCT)_$(SOMC_TARGET_OPERATOR)
+
+ifeq ($(SOMC_PRODUCT_OPERATOR),pdx234_generic)
+dtbo-y += kalama-audio.dtbo \
+	          somc-yodo-audio-pdx234.dtbo
+endif
+
+else
 dtbo-y += kalama-audio.dtbo \
                  kalama-audio-cdp.dtbo \
                  kalama-audio-cdp-nfc.dtbo \
@@ -14,20 +28,6 @@ dtbo-y += kalama-audio.dtbo \
                  kalama-audio-hdk.dtbo \
                  kalama-sg-audio-hhg.dtbo
 endif
-
-ifeq ($(CONFIG_ARCH_SA8155), y)
-dtbo-y +=  sa8155-audio.dtbo
-endif
-
-ifeq ($(CONFIG_ARCH_KHAJE), y)
-dtbo-y += khaje-audio.dtbo \
-		khaje-audio-idp.dtbo \
-		khaje-audio-qrd.dtbo \
-		khaje-audio-qrd-hvdcp3p5.dtbo \
-		khaje-audio-idp-nopmi.dtbo \
-                khajeg-audio-idp.dtbo \
-                khajeg-audio-idp-90hz.dtbo \
-		khaje-nowcd.dtbo
 endif
 
  always-y    := $(dtb-y) $(dtbo-y)
