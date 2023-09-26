@@ -363,18 +363,6 @@
 	};
 };
 
-&cam_csiphy_tpg13 {
-	status = "disabled";
-};
-
-&cam_csiphy_tpg14 {
-	status = "disabled";
-};
-
-&cam_csiphy_tpg15 {
-	status = "disabled";
-};
-
 &qupv3_hub_i2c2 {
 	dialog_pmic_0:slg51000@75 {
 		compatible = "dlg,slg51000";
