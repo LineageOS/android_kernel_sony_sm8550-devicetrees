@@ -55,6 +55,8 @@ endif
 SOMC_PRODUCT_OPERATOR = $(SOMC_TARGET_PRODUCT)_$(SOMC_TARGET_OPERATOR)
 
 ifneq ($(filter pdx234_generic ,$(SOMC_PRODUCT_OPERATOR)),)
+dtb-y += display/kalama-sde.dtbo
+
 dtbo-y += display/kalama-sde.dtbo \
 	display/kalama-sde-display-pdx234-overlay.dtbo
 endif

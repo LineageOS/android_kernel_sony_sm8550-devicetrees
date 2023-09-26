@@ -10,6 +10,8 @@ ifeq ($(SOMC_PLATFORM), yodo)
 SOMC_PRODUCT_OPERATOR = $(SOMC_TARGET_PRODUCT)_$(SOMC_TARGET_OPERATOR)
 
 ifeq ($(SOMC_PRODUCT_OPERATOR),pdx234_generic)
+dtb-y += kalama-audio.dtbo
+
 dtbo-y += kalama-audio.dtbo \
 	          somc-yodo-audio-pdx234.dtbo
 endif
