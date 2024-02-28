@@ -23,6 +23,7 @@
 					SKU_CODE(PCODE_6, FC_YE)>;
 
 			qcom,initial-pwrlevel = <8>;
+			qcom,initial-min-pwrlevel = <8>;
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
@@ -142,6 +143,7 @@
 			qcom,sku-codes = <SKU_CODE(PCODE_UNKNOWN, FC_UNKNOWN)>;
 
 			qcom,initial-pwrlevel = <7>;
+			qcom,initial-min-pwrlevel = <7>;
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
