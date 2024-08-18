@@ -223,5 +223,6 @@
 &sde_dp {
 	qcom,aux-en-gpio = <&tlmm 50 0>;
 	qcom,aux-sel-gpio = <&tlmm 51 0>;
+	/delete-property/ qcom,dp-aux-switch;
 	qcom,dp-gpio-aux-switch;
 };
