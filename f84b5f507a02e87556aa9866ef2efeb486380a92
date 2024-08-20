@@ -16,6 +16,23 @@
       "message": "Thanks for submitting this patch! Can you share how you debug this problem? Since this problem has confused me for a long time and couldn\u0027t find the root cause.",
       "revId": "f84b5f507a02e87556aa9866ef2efeb486380a92",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f19b1a_7acbb8e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33840
+      },
+      "writtenOn": "2024-08-20T14:18:20Z",
+      "side": 1,
+      "message": "Confirmed that external display connection works using USB-C cable.",
+      "revId": "f84b5f507a02e87556aa9866ef2efeb486380a92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
