@@ -33,6 +33,24 @@
       "message": "Confirmed that external display connection works using USB-C cable.",
       "revId": "f84b5f507a02e87556aa9866ef2efeb486380a92",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc1aef23_5dbfc44b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34025
+      },
+      "writtenOn": "2024-08-20T18:11:02Z",
+      "side": 1,
+      "message": "(Short answer: I fixed this problem by luck, hunch, spirit, and the minimum sense.)\n\nFirst, I found below error by using dmesg.\nhttps://gist.github.com/shunonymous/21248f533efd8b6d92a38271f950221c#file-dmesg_xqdq44-log-L6642\n\n\nNext, I found point of outputting the error and arrived here.\nhttps://github.com/LineageOS/android_kernel_sony_sm8550-modules/blob/lineage-21/qcom/opensource/display-drivers/msm/dp/dp_aux.c#L807\n\n\nI compared with sony\u0027s original source and noticed not existing code equal to dp_aux.c#L906-921 on sony\u0027s side, so first, I tried to skip this. Result, the problem was disappeared.\n\n\nAnd then, decide the correction policy. I compared source with other kernel for sm8550 devices, and found disabled fsa4480 on our device only.\nhttps://github.com/LineageOS/android_kernel_sony_sm8550-devicetrees/blob/lineage-21/qcom/display/display/somc-yodo-display.dtsi#L219\n\n\nAnd see this: https://github.com/LineageOS/android_kernel_sony_sm8550-modules/blob/lineage-21/qcom/opensource/display-drivers/msm/dp/dp_display.c#L2271\nI thought the patch I sent may produce the same result, so test it.\n\n(Sorry if diffucult to read, I\u0027m not good at English.)",
+      "parentUuid": "811fb479_91495c64",
+      "revId": "f84b5f507a02e87556aa9866ef2efeb486380a92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
