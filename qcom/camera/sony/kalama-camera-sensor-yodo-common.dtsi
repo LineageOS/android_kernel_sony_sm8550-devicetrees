@@ -65,6 +65,7 @@
 		clock-rates = <24000000>;
 		use_spi = <0>;
 		match_id = <0x34 0x0016 0x02 0x0888>;
+		thermal_names = "sony_cam_back0";
 		thremal_enable = <1>;
 		SEM52BC0 {
 			i2c_freq_mode = <3>;
@@ -151,6 +152,7 @@
 		clock-rates = <24000000>;
 		use_spi = <0>;
 		match_id = <0x40 0x0000 0x02 0x0650>;
+		thermal_names = "sony_cam_back1", "sony_cam_back1_ext";
 		thremal_enable = <1>;
 
 		LGI12BC0 {
@@ -244,6 +246,7 @@
 		use_spi = <0>;
 		clock-rates = <24000000>;
 		match_id = <0x20 0x0016 0x02 0x0663>;
+		thermal_names = "sony_cam_front0";
 		thremal_enable = <1>;
 		SUN12BS0 {
 			i2c_freq_mode = <3>;
@@ -314,6 +317,7 @@
 		use_spi = <0>;
 		clock-rates = <24000000>;
 		match_id = <0x20 0x0016 0x02 0x0563>;
+		thermal_names = "sony_cam_back2";
 		thremal_enable = <1>;
 		SEM12BC9 {
 			i2c_freq_mode = <3>;
