@@ -11,7 +11,12 @@ add-overlays = $(foreach o,$1,$(foreach b,$2,$(eval $(basename $b)-$(basename $o
 # kalama-overlays-dtb-y is list of DTBs and DTBOs to install when doing overlay-supported build
 # see DTB_TYPES from scripts/Makefile.dtbinst and install_dtbs from build.config.msm.common
 
+ifeq ($(CONFIG_MACH_SONY_PDX234),y)
 SOMC_TARGET_PRODUCT := pdx234
+endif
+ifeq ($(CONFIG_MACH_SONY_PDX237),y)
+SOMC_TARGET_PRODUCT := pdx237
+endif
 SOMC_TARGET_OPERATOR := generic
 SOMC_PLATFORM := yodo
 
@@ -74,6 +79,10 @@ NOAPQ_KALAMA_BOARDS += \
 ifeq ($(SOMC_PRODUCT_OPERATOR),pdx234_generic)
 KALAMA_SOMC_BOARDS += \
 		kalama-yodo-pdx234_generic-overlay.dtbo
+endif
+ifeq ($(SOMC_PRODUCT_OPERATOR),pdx237_generic)
+KALAMA_SOMC_BOARDS += \
+		kalama-yodo-pdx237_generic-overlay.dtbo
 endif
 ifeq ($(SOMC_PLATFORM),yodo)
 kalama-dtb-$(CONFIG_ARCH_KALAMA) += \

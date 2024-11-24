@@ -1,4 +1,9 @@
+ifeq ($(CONFIG_MACH_SONY_PDX234),y)
 SOMC_TARGET_PRODUCT := pdx234
+endif
+ifeq ($(CONFIG_MACH_SONY_PDX237),y)
+SOMC_TARGET_PRODUCT := pdx237
+endif
 SOMC_TARGET_OPERATOR := generic
 SOMC_PLATFORM := yodo
 
@@ -59,6 +64,12 @@ dtb-y += display/kalama-sde.dtbo
 
 dtbo-y += display/kalama-sde.dtbo \
 	display/kalama-sde-display-pdx234-overlay.dtbo
+endif
+ifneq ($(filter pdx237_generic ,$(SOMC_PRODUCT_OPERATOR)),)
+dtb-y += display/kalama-sde.dtbo
+
+dtbo-y += display/kalama-sde.dtbo \
+	display/kalama-sde-display-pdx237-overlay.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
