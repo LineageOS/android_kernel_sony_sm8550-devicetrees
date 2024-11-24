@@ -163,6 +163,8 @@
 	qcom,wsa-max-devs = <0>;
 	qcom,sen-mi2s-gpios = <&cdc_sen_mi2s_gpios>;
 	qcom,pri-mi2s-gpios = <&cdc_pri_mi2s_gpios>;
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>, <1>;
+	qcom,mi2s-tdm-is-hw-vote-needed = <1>, <1>, <1>, <0>, <0>, <0>, <0>;
 };
 
 &wsa_macro {
