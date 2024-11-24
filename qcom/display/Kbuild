@@ -16,6 +16,7 @@ dtbo-$(CONFIG_ARCH_KALAMA) += \
 endif
 dtb-$(CONFIG_MACH_SONY_DEVICE) += display/kalama-sde.dtbo
 dtbo-$(CONFIG_MACH_SONY_PDX234) += sony/kalama-sde-display-pdx234-overlay.dtbo
+dtbo-$(CONFIG_MACH_SONY_PDX237) += sony/kalama-sde-display-pdx237-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.dtbo \
                   display/trustedvm-kalama-sde-display-mtp-nfc-overlay.dtbo \

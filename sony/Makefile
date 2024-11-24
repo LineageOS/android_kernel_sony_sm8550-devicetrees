@@ -4,6 +4,9 @@ KALAMA_APQ_BASE_DTB += ../qcom/kalamap.dtb ../qcom/kalamap-v2.dtb ../qcom/kalama
 ifeq ($(CONFIG_MACH_SONY_PDX234),y)
 SOMC_KALAMA_BOARDS += \
 	kalama-yodo-pdx234_generic-overlay.dtbo
+else ifeq ($(CONFIG_MACH_SONY_PDX237),y)
+SOMC_KALAMA_BOARDS += \
+	kalama-yodo-pdx237_generic-overlay.dtbo
 endif
 
 kalama-overlays-dtb-y += $(SOMC_KALAMA_BOARDS) $(KALAMA_BASE_DTB) $(KALAMA_APQ_BASE_DTB)

@@ -15,3 +15,4 @@ endif
 
 dtb-$(CONFIG_MACH_SONY_DEVICE) += kalama-camera.dtbo
 dtbo-$(CONFIG_MACH_SONY_PDX234) += sony/kalama-camera-sensor-pdx234.dtbo
+dtbo-$(CONFIG_MACH_SONY_PDX237) += sony/kalama-camera-sensor-pdx237.dtbo
