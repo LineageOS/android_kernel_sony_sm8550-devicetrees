@@ -65,10 +65,6 @@
 			"gcc_gpu_snoc_dvm_gfx",
 			"gpu_cc_ahb", "apb_pclk";
 
-	qcom,gpu-model = "Adreno740";
-
-	qcom,chipid = <0x43050a00>;
-
 	qcom,no-nap;
 
 	qcom,min-access-length = <32>;

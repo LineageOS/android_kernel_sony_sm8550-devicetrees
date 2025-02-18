@@ -200,16 +200,10 @@
 	qcom,dsi-default-panel = <&dsi_vtdr6130_amoled_cmd>;
 };
 
-&qupv3_se4_spi {
-	goodix-berlin@0 {
-		panel = <&dsi_vtdr6130_amoled_cmd
-			&dsi_vtdr6130_amoled_video>;
-	};
-};
-
 &qupv3_se8_spi {
+	/*
 	goodix-berlin@0 {
 		panel = <&dsi_vtdr6130_amoled_cmd
 			&dsi_vtdr6130_amoled_video>;
-	};
+	}; */
 };

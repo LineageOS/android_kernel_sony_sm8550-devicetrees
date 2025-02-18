@@ -28,6 +28,8 @@ Required properties:
                are able to search for
 
 Optional properties:
+  - mpm_wake_set_gpios: U32 array of GPIOs which need to be setup for
+                        interrupt wakeup capable.
   - qcom,notify-modem-status: Boolean property to decide whether modem
                               notification should be enabled or not in this
                               platform
@@ -37,6 +39,8 @@ Optional properties:
   - qcom,wlan-uart-access: Boolean property to decide whether QCA6174
                            has exclusive access to UART.
   - vdd-wlan-io-supply: phandle to the 1.8V IO regulator for QCA6174
+  - vdd-wlan-io12-supply: phandle to the 1.2V IO regulator for Kiwi
+  - vdd-wlan-ant-share-supply: phandle to the Antenna Sharing regulator
   - vdd-wlan-xtal-supply: phandle to the 1.8V XTAL regulator for QCA6174
   - vdd-wlan-xtal-aon-supply: phandle to the LDO-4 regulator. This is needed
                               on platforms where XTAL regulator depends on
@@ -103,7 +107,9 @@ Optional properties:
   - mboxes: Specifies mbox channel data for AOP messaging
   - qcom,vreg_ipa: Specifies voltage regulator used for WLAN device internal
                    power amp config
- - qcom,xo-clk-gpio: Added for QCA6490 XO CLK selection leakage prevention.
+  - qcom,xo-clk-gpio: Added for QCA6490 XO CLK selection leakage prevention.
+  - platform-name-required: Boolean property to decide whether
+                            platform name required.
 
 List of chip specific sub nodes:
   - chip_cfg@X: represent chip specific configurations

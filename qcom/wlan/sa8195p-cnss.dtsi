@@ -1,64 +1,10 @@
 #include <dt-bindings/interconnect/qcom,sm8150.h>
 
-&tlmm {
-	cnss_pins {
-		cnss_wlan_en_active: cnss_wlan_en_active {
-			mux {
-				pins = "gpio169";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio169";
-				drive-strength = <16>;
-				output-high;
-				bias-pull-up;
-			};
-		};
-
-		cnss_wlan_en_sleep: cnss_wlan_en_sleep {
-			mux {
-				pins = "gpio169";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio169";
-				drive-strength = <2>;
-				output-low;
-				bias-pull-down;
-			};
-		};
-	};
-};
-
 &soc {
 	/* Rome 3.3V supply */
 	vreg_wlan: vreg_wlan {
 		compatible = "qcom,stub-regulator";
 		regulator-name = "vreg_wlan";
-	};
-
-	/* PWR_CTR2_VDD_1P8 supply */
-	vreg_conn_1p8: vreg_conn_1p8 {
-		compatible = "regulator-fixed";
-		regulator-name = "vreg_conn_1p8";
-		pinctrl-names = "default";
-		pinctrl-0 = <&conn_power_1p8_active>;
-		startup-delay-us = <4000>;
-		enable-active-high;
-		gpio = <&tlmm 173 0>;
-	};
-
-	/* PWR_CTR1_VDD_PA supply */
-	vreg_conn_pa: vreg_conn_pa {
-		compatible = "regulator-fixed";
-		regulator-name = "vreg_conn_pa";
-		pinctrl-names = "default";
-		pinctrl-0 = <&conn_power_pa_active>;
-		startup-delay-us = <4000>;
-		enable-active-high;
-		gpio = <&tlmm 174 0>;
 	};
 };
 
@@ -73,10 +19,10 @@
 };
 
 &soc {
-	qcom,cnss-qca6390@b0000000 {
+	wlan: qcom,cnss-qca-converged {
+		compatible = "qcom,cnss-qca-converged";
 		qcom,wlan;
 		qcom,multi-wlan-exchg;
-		compatible = "qcom,cnss-qca6390";
 		qcom,wlan-rc-num = <0>;
 		qcom,bus-type=<0>;
 		qcom,notify-modem-status;
@@ -87,23 +33,46 @@
 
 		vdd-wlan-ctrl1-supply = <&vreg_conn_pa>;
 		vdd-wlan-ctrl2-supply = <&vreg_conn_1p8>;
+		vdd-wlan-supply = <&vreg_wlan>;
 		vdd-wlan-aon-supply = <&pm8195_1_s5>;
 		vdd-wlan-rfa1-supply = <&pm8195_1_s2>;
 		vdd-wlan-rfa2-supply = <&pm8195_2_s5>;
 		vdd-wlan-rfa3-supply = <&pm8195_2_l7>;
 
+		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2";
 		qcom,vdd-wlan-ctrl1-config = <0 0 0 0 0>;
 		qcom,vdd-wlan-ctrl2-config = <0 0 0 0 0>;
-		qcom,vdd-wlan-aon-config = <1000000 1000000 0 0 0>;
-		qcom,vdd-wlan-rfa1-config = <1370000 1370000 0 0 0>;
-		qcom,vdd-wlan-rfa2-config = <2040000 2040000 0 0 0>;
-		qcom,vdd-wlan-rfa3-config = <1900000 1900000 450000 0 0>;
 		wlan-en-gpio = <&tlmm 169 0>;
-		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
+		pinctrl-names = "wlan_en_active", "wlan_en_sleep", "default";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
+		pinctrl-2 = <&cnss_wlan_en_sleep>;
 
-		qcom,wlan-ramdump-dynamic = <0x400000>;
+		chip_cfg@0 {
+			supported-ids = <0x1101>;
+
+			wlan_vregs = "vdd-wlan-aon", "vdd-wlan-rfa1",
+				   "vdd-wlan-rfa2", "vdd-wlan-rfa3";
+			qcom,vdd-wlan-aon-config = <1000000 1000000 0 0 0>;
+			qcom,vdd-wlan-rfa1-config = <1370000 1370000 0 0 0>;
+			qcom,vdd-wlan-rfa2-config = <2040000 2040000 0 0 0>;
+			qcom,vdd-wlan-rfa3-config = <1900000 1900000 450000 0 0>;
+
+			qcom,wlan-ramdump-dynamic = <0x400000>;
+		};
+
+		chip_cfg@1 {
+			supported-ids = <0x1102>;
+
+			wlan_vregs = "vdd-wlan-aon", "vdd-wlan-rfa1",
+				   "vdd-wlan-rfa2", "vdd-wlan-rfa3";
+			qcom,vdd-wlan-aon-config = <1000000 1000000 0 0 0>;
+			qcom,vdd-wlan-rfa1-config = <1370000 1370000 0 0 0>;
+			qcom,vdd-wlan-rfa2-config = <2040000 2040000 0 0 0>;
+			qcom,vdd-wlan-rfa3-config = <1900000 1900000 450000 0 0>;
+
+			qcom,wlan-ramdump-dynamic = <0x400000>;
+		};
 	};
 };
 

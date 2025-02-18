@@ -13,6 +13,7 @@
 		interrupt-names = "kgsl_3d0_irq";
 
 		qcom,id = <0>;
+		qcom,gpu-model = "Adreno610v1";
 		qcom,chipid = <0x06010000>;
 
 		qcom,initial-pwrlevel = <6>;
@@ -31,11 +32,24 @@
 			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
 			<&gpucc GPU_CC_CX_GMU_CLK>,
 			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
-			<&rpmcc RPM_SMD_QDSS_CLK>;
+			<&rpmcc RPM_SMD_QDSS_CLK>,
+			<&gpucc GPU_CC_AHB_CLK>,
+			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
+			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
+			<&gcc GCC_GPU_SNOC_DVM_GFX_CLK>;
 
-		clock-names = "core_clk", "rbbmtimer_clk", "iface_clk",
-				"ahb_clk", "mem_clk", "gmu_clk",
-				"smmu_vote", "apb_pclk";
+		clock-names = "core_clk",
+				"rbbmtimer_clk",
+				"iface_clk",
+				"ahb_clk",
+				"mem_clk",
+				"gmu_clk",
+				"smmu_vote",
+				"apb_pclk",
+				"gpu_cc_ahb",
+				"gcc_gpu_memnoc_gfx",
+				"gpu_cc_hlos1_vote_gpu_smmu",
+				"gcc_gpu_snoc_dvm_gfx";
 
 		interconnects = <&bimc MASTER_GRAPHICS_3D &bimc SLAVE_EBI_CH0>;
 		interconnect-names = "gpu_icc_path";
@@ -45,18 +59,18 @@
 			<100>; /* On */
 
 		qcom,bus-table-ddr =
-			<MHZ_TO_KBPS(0, 4)>,    /* index=0  */
-			<MHZ_TO_KBPS(100, 4)>,  /* index=1  */
-			<MHZ_TO_KBPS(200, 4)>,  /* index=2  */
-			<MHZ_TO_KBPS(300, 4)>,  /* index=3  */
-			<MHZ_TO_KBPS(451, 4)>,  /* index=4  */
-			<MHZ_TO_KBPS(547, 4)>,  /* index=5  */
-			<MHZ_TO_KBPS(681, 4)>,  /* index=6  */
-			<MHZ_TO_KBPS(768, 4)>,  /* index=7  */
-			<MHZ_TO_KBPS(1017, 4)>, /* index=8  */
-			<MHZ_TO_KBPS(1353, 4)>, /* index=9  */
-			<MHZ_TO_KBPS(1555, 4)>, /* index=10  */
-			<MHZ_TO_KBPS(1804, 4)>; /* index=11  */
+			<MHZ_TO_KBPS(0, 8)>,    /* index=0  */
+			<MHZ_TO_KBPS(100, 8)>,  /* index=1  */
+			<MHZ_TO_KBPS(200, 8)>,  /* index=2  */
+			<MHZ_TO_KBPS(300, 8)>,  /* index=3  */
+			<MHZ_TO_KBPS(451, 8)>,  /* index=4  */
+			<MHZ_TO_KBPS(547, 8)>,  /* index=5  */
+			<MHZ_TO_KBPS(681, 8)>,  /* index=6  */
+			<MHZ_TO_KBPS(768, 8)>,  /* index=7  */
+			<MHZ_TO_KBPS(1017, 8)>, /* index=8  */
+			<MHZ_TO_KBPS(1353, 8)>, /* index=9  */
+			<MHZ_TO_KBPS(1555, 8)>, /* index=10  */
+			<MHZ_TO_KBPS(1804, 8)>; /* index=11  */
 
 
 		/* GDSC regulator names */
@@ -650,12 +664,6 @@
 		qcom,protect = <0xa0000 0x10000>;
 
 		vddcx-supply = <&gpu_cx_gdsc>;
-		clocks = <&gcc GCC_BIMC_GPU_AXI_CLK>,
-			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
-			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>;
-
-		clock-names = "mem_clk", "mem_iface_clk", "smmu_vote";
-
 		qcom,retention;
 		qcom,hyp_secure_alloc;
 

@@ -85,7 +85,7 @@
 			interconnect-names = "pcie_to_memnoc", "memnoc_to_ddr";
 
 			qcom,icc-path-count = <2>;
-			qcom,bus-bw-cfg-count = <9>;
+			qcom,bus-bw-cfg-count = <10>;
 			qcom,bus-bw-cfg =
 			/** ICC Path 1 **/
 			<0 0>, /* no vote */
@@ -97,7 +97,7 @@
 			<30000 1600000>,
 			/* high: 240-1200 Mbps snoc/anoc: 100 Mhz */
 			<100000 1600000>,
-			/* very high: > 1200 Mbps snoc/anoc: 403 Mhz */
+			/* very high: 1200 Mbps snoc/anoc: 403 Mhz */
 			<175000 6448000>,
 			/* ultra high: DBS mode snoc/anoc: 403 Mhz */
 			<312500 6448000>,
@@ -107,25 +107,29 @@
 			 * ddr: 547.2 MHz
 			 */
 			<7500 3200000>,
+			/* mid high: 800-1200 Mbps snoc/anoc: 200 Mhz */
+			<100000 3200000>,
 
 			/** ICC Path 2 **/
 			<0 0>,
-			/* idle: 0-18 Mbps ddr: 451.2 MHz */
-			<2250 1804800>,
-			/* low: 18-60 Mbps ddr: 451.2 MHz */
-			<7500 1804800>,
-			/* medium: 60-240 Mbps ddr: 451.2 MHz */
-			<30000 1804800>,
-			/* high: 240-1080 Mbps ddr: 451.2 MHz */
-			<100000 1804800>,
-			/* very high: > 1080 Mbps ddr: 451.2 MHz */
+			/* idle: 0-18 Mbps ddr: 547.2 MHz */
+			<2250 2188800>,
+			/* low: 18-60 Mbps ddr: 547.2 MHz */
+			<7500 2188800>,
+			/* medium: 60-240 Mbps ddr: 547.2 MHz */
+			<30000 2188800>,
+			/* high: 240-1080 Mbps ddr: 547.2 MHz */
+			<100000 2188800>,
+			/* very high: > 1080 Mbps ddr: 1555 MHz */
 			<175000 6220800>,
 			/* ultra high: DBS mode ddr: 2092 MHz */
 			<312500 8368000>,
 			/* super high: DBS mode ddr: 3.2 GHz */
 			<587500 12800000>,
 			/* low (latency critical): 18-60 Mbps ddr: 547.2 MHz */
-			<7500 2188800>;
+			<7500 2188800>,
+			/* mid high: 800-1200 Mbps ddr: 547.2 Mhz */
+			<100000 2188800>;
 
 			qcom,pdc_init_table =
 			"{class: wlan_pdc, ss: rf, res: s4e.v, upval: 966}",
@@ -247,7 +251,7 @@
 			"{class: wlan_pdc, ss: rf, res: s2g.v, enable: 0}",
 			"{class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
 			"{class: wlan_pdc, ss: bb, res: s2g.v, upval: 976}",
-			"{class: wlan_pdc, ss: bb, res: s2g.v, dwnval: 512}",
+			"{class: wlan_pdc, ss: bb, res: s2g.v, dwnval: 800}",
 			"{class: wlan_pdc, ss: bb, res: s5g.v, upval: 940}",
 			"{class: wlan_pdc, ss: bb, res: s5g.v, dwnval: 420}";
 		};

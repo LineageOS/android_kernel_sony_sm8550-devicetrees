@@ -145,7 +145,6 @@
 		qcom,sde-has-cdp;
 		qcom,sde-has-src-split;
 		qcom,sde-pipe-order-version = <0x1>;
-		qcom,sde-has-dim-layer;
 		qcom,sde-has-dest-scaler;
 		qcom,sde-max-trusted-vm-displays = <1>;
 

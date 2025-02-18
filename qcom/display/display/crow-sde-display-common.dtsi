@@ -10,7 +10,6 @@
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-video.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-90hz-video.dtsi"
-
 #include "crow-sde-display-pinctrl.dtsi"
 
 &soc {

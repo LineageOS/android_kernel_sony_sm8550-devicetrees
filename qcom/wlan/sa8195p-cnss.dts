@@ -7,5 +7,5 @@
 	model = "Qualcomm Technologies, Inc. SA8195P SoCs";
 	compatible = "qcom,sa8195p";
 	qcom,msm-id = <405 0x20000>;
-	qcom,board-id = <0x02010019 0>, <0x010019 0>;
+	qcom,board-id = <0x02010019 0>, <0x010019 0>, <0 0>;
 };
