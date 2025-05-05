@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7506115_f190767a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-05T20:09:20Z",
+      "side": 1,
+      "message": "kill PASR in userspace as well (if you didn\u0027t already)\nalso https://github.com/LineageOS/android_kernel_osom_sm8475-devicetrees/commit/b1f497988c7caace3a9c007feace2362a63617da for reference",
+      "revId": "6bd74ff52a103d806aab5bcd38ae48a2906e6cfa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
